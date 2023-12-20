@@ -53,50 +53,132 @@ function validacion() {
 }
 
 
-
 $(document).ready(function () {
 
-
     $.ajax({
-        url: "http://localhost/sistemadevotacion/sistema/php/consultas.php",
+        url: "http://localhost/sistemadevotacion/sistema/php/consultasBDD.php",
         method: "GET",
         dataType: "json",
-        data:{ 
-               funcion: 'seleccionarRegionComuna'
+        data: {
+            funcion: 'seleccionarCandidato'
         },
-        
-        success: function (data) {
-            try{               
-                var jsonData = JSON.stringify(data);
-                console.log("Respuesta del servidor:", jsonData);
 
-                $('#region').empty();
-                $('#region').append('<option value="0">Seleccione</option>');
-                $.each(data, function(index, element) {
-                    $('#region').append('<option value="' + element.REGION_ID + '">' + element.REGION_NOMBRE + '</option>');
+        success: function (data) {
+            try {
+                var jsonData = JSON.stringify(data);
+                console.log("Respuesta del servidor candidato:", jsonData);
+
+                $('#candidato').empty();
+                $('#candidato').append('<option value="0">Seleccione</option>');
+                $.each(data, function (index, element) {
+                    $('#candidato').append('<option value="' + element.id_candidato + '">' + element.nombres_candidato + '</option>');
                 });
 
-            }catch(e){
-                console.error("Error al analizar JSON:", e);
+            } catch (e) {
+                console.error("Error al analizar JSON candidato:", e);
             }
             console.log(data);
 
             //console.log("logré entrar al ajax");
         },
-        error: function(xhr, status, error){
-            console.log("error, no entra a ajax: "+ status +" - "+error);
-        } 
+        error: function (xhr, status, error) {
+            console.log("error, no entra a ajax candidato: " + status + " - " + error);
+        }
+    });
+
+
+});
+
+$(document).ready(function () {
+
+    $.ajax({
+        url: "http://localhost/sistemadevotacion/sistema/php/consultasBDD.php",
+        method: "GET",
+        dataType: "json",
+        data: {
+            funcion: 'seleccionarRegion'
+        },
+
+        success: function (data) {
+            try {
+                var jsonData = JSON.stringify(data);
+                console.log("Respuesta del servidor region:", jsonData);
+
+                $('#region').empty();
+                $('#region').append('<option value="0">Seleccione</option>');
+                $.each(data, function (index, element) {
+                    $('#region').append('<option value="' + element.REGION_ID + '">' + element.REGION_NOMBRE + '</option>');
+                });
+
+            } catch (e) {
+                console.error("Error al analizar JSON region:", e);
+            }
+            console.log(data);
+
+            //console.log("logré entrar al ajax");
+        },
+        error: function (xhr, status, error) {
+            console.log("error, no entra a ajax region: " + status + " - " + error);
+        }
     });
 
 
 });
 
 
-$('#region').change(function () {
+$("#region").change(function () {
 
-    console.log("hola mundo");
+    var region_id = $("#region").prop("selectedIndex");
+    //var region_nombre = $("#region option:Selected").text();
+    //console.log("valor obtenido de region: "+ region_id + " - " + region_nombre);
+    //var region_id = 1;
+
+    $.ajax({
+        url: "http://localhost/sistemadevotacion/sistema/php/consultasBDD.php",
+        method: "GET",
+        dataType: "json",
+        data: {
+            funcion: 'seleccionarComuna',
+            region_id: region_id
+        },
+
+        success: function (data) {
+            try {
+                var jsonData = JSON.stringify(data);
+                console.log("Respuesta del servidor Comuna:", jsonData);
+
+                if (region_id == 0) {
+                    $('#comuna').empty();
+                    $('#comuna').append('<option value="0">Seleccione</option>');
+
+                } else {
+
+                    $('#comuna').empty();
+                    $.each(data, function (index, element) {
+                        $('#comuna').append('<option value="' + element.comuna_id + '">' + element.comuna_nombre + '</option>');
+                    });
+
+                }
+
+
+            } catch (e) {
+                console.error("Error al analizar JSON Comuna:", e);
+            }
+            console.log(data);
+
+            console.log("logré entrar al ajax Comuna");
+        },
+        error: function (xhr, status, error) {
+            console.log("error, no entra a ajax Comuna: " + status + " - " + error);
+        }
+    });
+
 
 });
+
+
+
+
 
 
 
