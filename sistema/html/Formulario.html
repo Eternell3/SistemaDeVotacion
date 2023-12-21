@@ -7,7 +7,7 @@
     <title>FORMULARIO</title>
     <script src="/sistema/js/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="../css/flexboxgrid.css">
-    
+
 </head>
 
 <body>
@@ -22,110 +22,119 @@
             </div>
         </div>
 
-        <div class="row start-xs start-sm start-md start-lg">
+        <form id="formulario" action="" method="POST">
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Nombre y Apellido</label></p>
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Nombre y Apellido</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><input type="text" placeholder="Alberto Plaza" id="nombres" name="nombres"></p>
+
+                </div>
+
             </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p><input type="text" placeholder="Alberto Plaza" id="nombres" name="nombres"></p>
+
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Alias</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><input type="text" placeholder="a3d333dd" id="alias" name="alias"></p>
+                </div>
             </div>
-        </div>
 
-        <div class="row start-xs start-sm start-md start-lg">
+            <div class="row start-xs start-sm start-md start-lg">
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Alias</label></p>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>RUT</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><input type="text" placeholder="12.345.678-9" id="rut" name="rut"></p>
+                </div>
             </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p><input type="text" placeholder="a3d333dd" id="alias" name="alias"></p>
+
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Email</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p><input type="email" placeholder="ejemplo@ejemplo.cl" id="email" name="email"></p>
+                </div>
             </div>
-        </div>
 
-        <div class="row start-xs start-sm start-md start-lg">
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>RUT</label></p>
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Región</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p>
+                        <select id="region" name="region"></select>
+                    </p>
+                </div>
             </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p><input type="text" placeholder="12.345.678-9" id="rut" name="rut"></p>
+
+
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Comuna</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p>
+                        <select id="comuna" name="comuna">
+                            <option value="0">Seleccione</option>
+                        </select>
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="row start-xs start-sm start-md start-lg">
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Email</label></p>
+            <div class="row start-xs start-sm start-md start-lg">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Candidato</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <p>
+                        <select id="candidato" name="candidato"></select>
+                    </p>
+                </div>
             </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p><input type="email" placeholder="ejemplo@ejemplo.cl" id="email" name="email"></p>
+
+
+
+            <div class="row start-xs start-sm start-md start-lg middle-xs">
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <p><label>Como se enteró de Nosotros</label></p>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span><input type="checkbox" class="checkear" id="web" name="web">WEB</span>
+                    <span><input type="checkbox" class="checkear" id="tv" name="tv">TV</span>
+                    <span><input type="checkbox" class="checkear" id="redes" name="redes">Redes Sociales</span>
+                    <span><input type="checkbox" class="checkear" id="amigos" name="amigos">Amigos</span>
+                </div>
             </div>
-        </div>
+
+            <input type="text" style="display: none;" name="funcion" value="insertarFormulario"></input>
+
+            <button type="submit" id="btnVotar">Votar</button>
 
 
-        <div class="row start-xs start-sm start-md start-lg">
-
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Región</label></p>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p>
-                    <select id="region" name="region"></select>
-                </p>
-            </div>
-        </div>
-
-
-        <div class="row start-xs start-sm start-md start-lg">
-
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Comuna</label></p>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p>
-                    <select id="comuna" name="comuna">
-                        <option value="0">Seleccione</option>
-                    </select>
-                </p>
-            </div>
-        </div>
-
-
-        <div class="row start-xs start-sm start-md start-lg">
-
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Candidato</label></p>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <p>
-                    <select id="candidato" name="candidato"></select>
-                </p>
-            </div>
-        </div>
-
-
-
-        <div class="row start-xs start-sm start-md start-lg middle-xs">
-
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <p><label>Como se enteró de Nosotros</label></p>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <span><input type="checkbox" id="WEB" name="WEB">WEB</span>
-                <span><input type="checkbox" id="TV" name="TV">TV</span>
-                <span><input type="checkbox" id="WEB" name="WEB">Redes Socuales</span>
-                <span><input type="checkbox" id="WEB" name="WEB">Amigos</span>
-            </div>
-        </div>
-
-        <button onclick="validacion()">Votar</button>
+        </form>
 
 
 
 
     </div>
-    
-    <script src="../js/validaciones.js?v=22"></script>
+
+    <script src="../js/validaciones.js?v=27"></script>
 </body>
 
 </html>
