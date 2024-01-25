@@ -14,7 +14,7 @@ function validacion() {
 
     var formato_alias = /^(?=.*[a-zA-Z])(?=.*\d).+$/;
     var formato_rut = /^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/;
-    var formato_correo = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+    var formato_correo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (v_nombres.length == 0) {
 
